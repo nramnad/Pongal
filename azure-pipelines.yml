@@ -3,17 +3,12 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-stages:
-- stage: Build
-  jobs:
-    - job: firstjob
-      steps:
-      - bash: echo Build First Job
-      - bash: echo $(pipelinevariable)
-      - bash: echo $(Build.BuildNumber)
-      - bash: echo $(Build.BuildId)
-      - bash: echo $(Build.SourceBranchName)
-      - bash: echo $(Build.SourcesDirectory)
-      - bash: echo $(System.DefaultWorkingDirectory)
-      - bash: ls -r  $(System.DefaultWorkingDirectory)
-      - bash: echo $(Build.ArtifactStagingDirectory)
+
+steps:
+- script: echo Hello, world! Changed
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line scripts'
